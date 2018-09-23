@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:showIn="@layout/app_bar_main">
+    tools:showIn="@layout/app_bar_main"
+    android:background="@color/material_grey_800">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@color/material_grey_600"
+        android:background="@color/material_grey_800"
         android:id="@+id/dataLayout"
         android:paddingBottom="5dp"
         android:paddingTop="5dp">
@@ -19,56 +21,59 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:weightSum="4"
-            android:layout_marginLeft="10dp">
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="2dp">
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                style="@style/baseText"
                 android:text="Type"
-                android:layout_weight="1.5" />
+                android:layout_weight="1.3" />
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                style="@style/baseText"
                 android:text="Count"
-                android:layout_weight="0.8" />
+                android:layout_weight="0.7" />
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                style="@style/baseText"
                 android:text="Time"
-                android:layout_weight="0.8" />
+                android:layout_weight="0.7" />
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                style="@style/baseText"
+                android:text="ΣTime"
+                android:layout_weight="0.7" />
+            <TextView
+                style="@style/baseText"
                 android:text="Memory"
-                android:layout_weight="0.9" />
+                android:layout_weight="0.6" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:weightSum="4"
-            android:layout_marginLeft="10dp">
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="2dp">
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                style="@style/baseText"
                 android:text="LinearLayout"
-                android:layout_weight="1.5" />
+                android:layout_weight="1.3" />
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                style="@style/baseText"
                 android:text="0"
-                android:layout_weight="0.8"
+                android:layout_weight="0.7"
                 android:id="@+id/linear_count" />
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                style="@style/baseText"
                 android:text="0"
-                android:layout_weight="0.8"
+                android:layout_weight="0.7"
                 android:id="@+id/linear_time" />
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                style="@style/baseText"
                 android:text="0"
-                android:layout_weight="0.9"
+                android:layout_weight="0.7"
+                android:id="@+id/linear_sumtime" />
+            <TextView
+                style="@style/baseText"
+                android:text="0"
+                android:layout_weight="0.6"
                 android:id="@+id/linear_memory" />
         </LinearLayout>
         <LinearLayout
@@ -76,37 +81,51 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:weightSum="4"
-            android:layout_marginLeft="10dp">
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="2dp">
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                style="@style/baseText"
                 android:text="RelativeLayout"
-                android:layout_weight="1.5" />
+                android:layout_weight="1.3" />
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                style="@style/baseText"
                 android:text="0"
-                android:layout_weight="0.8"
+                android:layout_weight="0.7"
                 android:id="@+id/relative_count" />
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                style="@style/baseText"
                 android:text="0"
-                android:layout_weight="0.8"
+                android:layout_weight="0.7"
                 android:id="@+id/relative_time" />
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                style="@style/baseText"
                 android:text="0"
-                android:layout_weight="0.9"
+                android:layout_weight="0.7"
+                android:id="@+id/relative_sumtime" />
+            <TextView
+                style="@style/baseText"
+                android:text="0"
+                android:layout_weight="0.6"
                 android:id="@+id/relative_memory" />
         </LinearLayout>
     </LinearLayout>
+    <Button
+        android:id="@+id/startButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Start"/>
+    <TextView
+        android:id="@+id/label"
+        android:textColor="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:gravity="center"
+        android:text="empty"
+        android:textAllCaps="true" />
     <FrameLayout
         android:id="@+id/container"
-        android:background="@color/material_grey_800"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
-        android:layout_below="@+id/dataLayout"/>
-</RelativeLayout>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
+</LinearLayout>

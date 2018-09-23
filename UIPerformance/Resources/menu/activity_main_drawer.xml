@@ -4,12 +4,24 @@
     tools:showIn="navigation_view">
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/linear_item"
+            android:id="@+id/zeroDimentions"
             android:icon="@drawable/ic_menu_layout"
-            android:title="LinearLayout" />
+            android:title="0x0" />
         <item
-            android:id="@+id/relative_item"
+            android:id="@+id/fiveDimentions"
             android:icon="@drawable/ic_menu_layout"
-            android:title="RelativeLayout" />
+            android:title="5 x 20" />
+        <item
+            android:id="@+id/tenDimentions"
+            android:icon="@drawable/ic_menu_layout"
+            android:title="10 x 20" />
+        <item
+            android:id="@+id/fiftingDimentions"
+            android:icon="@drawable/ic_menu_layout"
+            android:title="15 x 20" />
+        <item
+            android:id="@+id/twentyDimentions"
+            android:icon="@drawable/ic_menu_layout"
+            android:title="20 x 20" />
     </group>
 </menu>

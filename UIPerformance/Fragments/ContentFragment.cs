@@ -11,7 +11,7 @@ namespace UIPerformance.Fragments
         private int _resource;
 
         public int ElapsedTime { get; private set; }
-        public long ElapsedMemory { get; private set; }
+        public decimal ElapsedMemory { get; private set; }
 
         public event ViewCreatedEventHandler ViewCreated;
 
@@ -24,7 +24,7 @@ namespace UIPerformance.Fragments
         {
             var timeStart = DateTime.UtcNow;
             var view = inflater.Inflate(_resource, container, false);
-            ElapsedMemory =  GC.GetTotalMemory(true) / 1024;
+            ElapsedMemory =  GC.GetTotalMemory(true) / (1024 * 1024);
             ElapsedTime = (DateTime.UtcNow - timeStart).Milliseconds;
             ViewCreated?.Invoke(this);
             return view;
