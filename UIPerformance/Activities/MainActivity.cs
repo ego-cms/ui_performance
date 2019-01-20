@@ -21,7 +21,7 @@ namespace UIPerformance
     {
         private Timer _timer;
         private int _contIterations;
-        private LayoutType _currentType = LayoutType.RelativeLayout;
+        private LayoutType _currentType = LayoutType.LinearLayout;
         private List<ResultModel> _relativeResults = new List<ResultModel>();
         private List<ResultModel> _linearResults = new List<ResultModel>();
         private Android.Support.V7.Widget.Toolbar _toolbar;
