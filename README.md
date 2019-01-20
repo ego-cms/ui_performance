@@ -1,2 +1,2 @@
 # ui_performance
-init
+Test app for research UI performance for Android platform
