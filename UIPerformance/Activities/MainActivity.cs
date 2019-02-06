@@ -29,10 +29,12 @@ namespace UIPerformance
         private TextView _linearTime;
         private TextView _linearSumTime;
         private TextView _linearMemory;
+        private TextView _linearJavaMemory;
         private TextView _relativeCount;
         private TextView _relativeTime;
         private TextView _relativeSumTime;
         private TextView _relativeMemory;
+        private TextView _relativeJavaMemory;
         private TextView _label;
         private Button _startButton;
 
@@ -60,10 +62,12 @@ namespace UIPerformance
             _linearTime = FindViewById<TextView>(Resource.Id.linear_time);
             _linearSumTime = FindViewById<TextView>(Resource.Id.linear_sumtime);
             _linearMemory = FindViewById<TextView>(Resource.Id.linear_memory);
+            _linearJavaMemory = FindViewById<TextView>(Resource.Id.linear_java_memory);
             _relativeCount = FindViewById<TextView>(Resource.Id.relative_count);
             _relativeTime = FindViewById<TextView>(Resource.Id.relative_time);
             _relativeSumTime = FindViewById<TextView>(Resource.Id.relative_sumtime);
             _relativeMemory = FindViewById<TextView>(Resource.Id.relative_memory);
+            _relativeJavaMemory = FindViewById<TextView>(Resource.Id.relative_java_memory);
             _label = FindViewById<TextView>(Resource.Id.label);
 
             _startButton = FindViewById<Button>(Resource.Id.startButton);
@@ -194,6 +198,7 @@ namespace UIPerformance
                 fragment.ViewCreated -= handler;
                 model.ElapsedTime = sender.ElapsedTime;
                 model.ElapsedMemory = sender.ElapsedMemory;
+                model.ElapsedJavaMemory = sender.ElapsedJavaMemory;
                 UpdateResults(model);
             }
 
@@ -214,16 +219,16 @@ namespace UIPerformance
             if(model.Type == ViewType.LinearLayout)
             {
                 _linearResults.Add(model);
-                UpdateUIResults(_linearCount, _linearTime, _linearSumTime, _linearMemory, _linearResults);
+                UpdateUIResults(_linearCount, _linearTime, _linearSumTime, _linearMemory, _linearJavaMemory, _linearResults);
             }
             else
             {
                 _relativeResults.Add(model);
-                UpdateUIResults(_relativeCount, _relativeTime, _relativeSumTime, _relativeMemory, _relativeResults);
+                UpdateUIResults(_relativeCount, _relativeTime, _relativeSumTime, _relativeMemory, _relativeJavaMemory, _relativeResults);
             }
         }
 
-        private void UpdateUIResults(TextView countTextView, TextView timeTextView, TextView sumtimeTextView, TextView memoryTextView, List<ResultModel> models)
+        private void UpdateUIResults(TextView countTextView, TextView timeTextView, TextView sumtimeTextView, TextView memoryTextView, TextView memoryJavaTextView, List<ResultModel> models)
         {
             RunOnUiThread(() =>
             {
@@ -231,6 +236,7 @@ namespace UIPerformance
                 timeTextView.Text = models.Count > 0 ? models.Select(item => item.ElapsedTime).Average().ToString("0.0") : "0";
                 sumtimeTextView.Text = models.Count > 0 ? models.Select(item => item.ElapsedTime).Sum().ToString("0.0") : "0";
                 memoryTextView.Text = models.Count > 0 ? models.Select(item => item.ElapsedMemory).Average().ToString("0.000") : "0";
+                memoryJavaTextView.Text = models.Count > 0 ? models.Select(item => item.ElapsedJavaMemory).Average().ToString("0.000") : "0";
             });
         }
     }

@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:weightSum="4"
+            android:weightSum="4.6"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="2dp">
             <TextView
@@ -41,14 +41,18 @@
                 android:layout_weight="0.7" />
             <TextView
                 style="@style/baseText"
-                android:text="Memory"
+                android:text=".Net Memory"
+                android:layout_weight="0.6" />
+            <TextView
+                style="@style/baseText"
+                android:text="Java Memory"
                 android:layout_weight="0.6" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:weightSum="4"
+            android:weightSum="4.6"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="2dp">
             <TextView
@@ -75,12 +79,17 @@
                 android:text="0"
                 android:layout_weight="0.6"
                 android:id="@+id/linear_memory" />
+            <TextView
+                style="@style/baseText"
+                android:text="0"
+                android:layout_weight="0.6"
+                android:id="@+id/linear_java_memory" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:weightSum="4"
+            android:weightSum="4.6"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="2dp">
             <TextView
@@ -107,6 +116,11 @@
                 android:text="0"
                 android:layout_weight="0.6"
                 android:id="@+id/relative_memory" />
+            <TextView
+                style="@style/baseText"
+                android:text="0"
+                android:layout_weight="0.6"
+                android:id="@+id/relative_java_memory" />
         </LinearLayout>
     </LinearLayout>
     <Button
